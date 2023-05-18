@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Nickname Generator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+    h1 {
+      color: #333;
+      font-size: 3rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
+    p {
+      color: #666;
+      font-size: 1.2rem;
+      margin: 1rem;
+    }
+    button {
+      padding: 1rem 2rem;
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1.2rem;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+    #nickname {
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+  <body>
+    <center>
+      <h1>Nickname Generator</h1>
+      <p>Click the button to generate a new nickname:</p>
+      <button onclick="generateButtonClicked()">Generate</button>
+      <p>Your nickname is:</p>
+      <p id="nickname"></p>
+      <center>
+        <script>
+          const words = ["Avatar", "Halo", "Harry Potter", "Lord of the Rings", "Zelda", "Assassins Creed", "Batman", "Star Wars", "Uncharted", "Mass Effect", "Bioshock", "Call of Duty", "CounterStrike", "Dark Souls", "Destiny", "Diablo", "Doom", "Fallout", "Final Fantasy", "Fortnite", "Gears of War", "God of War", "Grand Theft Auto", "HalfLife", "Horizon Zero Dawn", "Minecraft", "Overwatch", "PlayerUnknowns Battlegrounds", "Portal", "Red Dead Redemption", "Resident Evil", "Skyrim", "The Elder Scrolls", "The Last of Us", "The Legend of Zelda", "The Witcher", "Titanfall", "Tom Clancys Rainbow Six", "World of Warcraft", "Apex Legends", "Borderlands", "Civilization", "Dead Space", "Dragon Age", "Eve Online", "Fable", "Final Fantasy VII", "Forza Horizon", "Guild Wars 2", "Hearthstone", "Kingdom Hearts", "Left 4 Dead", "Metal Gear Solid", "Monster Hunter", "Nier Automata", "Persona 5", "Portal 2", "Ratchet & Clank", "Shadow of the Colossus", "Sonic the Hedgehog", "Soulcalibur", "SpiderMan", "Splatoon", "Stardew Valley", "Street Fighter", "Super Mario Bros", "Team Fortress 2", "Tekken", "The Binding of Isaac", "The Division", "The Sims", "Thief", "Tomb Raider", "Warframe", "Wolfenstein", "Wonder Boy", "XCOM", "Blade Runner", "Jurassic Park", "The Matrix", "Inception", "The Dark Knight", "Pulp Fiction", "Fight Club", "The Godfather", "Star Wars Episode IV A New Hope", "The Lord of the Rings The Fellowship of the Ring", "The Shawshank Redemption", "The Silence of the Lambs", "The Terminator", "Alien", "The Exorcist", "Jaws", "Psycho", "The Shining", "2001 A Space Odyssey", "ET the ExtraTerrestrial", "Raiders of the Lost Ark", "Back to the Future", "Ghostbusters", "The Breakfast Club", "Ferris Buellers Day Off", "The Princess Bride", "Forrest Gump", "The Lion King", "Toy Story", "The Matrix", "The Big Lebowski", "Pirates of the Caribbean", "The Avengers", "The Dark Knight Rises", "Jurassic Park", "Star Wars Episode V The Empire Strikes Back", "Indiana Jones and the Raiders of the Lost Ark", "Die Hard", "The Incredibles", "WALLE", "Up", "Inside Out"];
+          function generateNickname() {
+            const firstWord = words[Math.floor(Math.random() * words.length)];
+            const secondWord = words[Math.floor(Math.random() * words.length)];
+            const firstSyllable = firstWord.substring(0, Math.ceil(firstWord.length / 2));
+            const secondSyllable = secondWord.substring(Math.ceil(secondWord.length / 2));
+            const randomNumber = Math.floor(Math.random() * 1000);
+            const nickname = (firstSyllable + secondSyllable + randomNumber).replace(/\s+/g, '');
+            return nickname;
+          }
+          function generateButtonClicked() {
+            const nicknameElement = document.getElementById("nickname");
+            nicknameElement.textContent = generateNickname();
+          }
+        </script>
+  </body>
+</html>
